@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@layer components {
+  .justify-align-center-layout {
+    @apply flex justify-center items-center h-screen;
+  }
+  .input-layout {
+    @apply flex flex-col;
+  }
+  .input-field {
+    @apply w-[22rem] outline-none text-[17px];
+  }
+  .input-label {
+    @apply text-gray-600 ml-1 text-[15px];
+  }
+  .input-border {
+    @apply border-[0.1rem] border-solid rounded-[6px] py-[0.5rem]
+    px-[1.4rem] border-gray-400 transition-colors cursor-text;
+  }
+  .btn-submit {
+    @apply w-full rounded-[6px] py-[0.6rem] opacity-90 
+    hover:opacity-100 transition-opacity;
+  }
+}
