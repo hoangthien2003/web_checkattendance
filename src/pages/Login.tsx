@@ -15,8 +15,8 @@ function Login() {
     e.preventDefault();
     const studentID = studentIDRef.current?.value;
     const email = emailRef.current?.value;
-    console.log(studentID);
-    console.log(email);
+    setErrorStudentID("Invalid studentID");
+    setErrorEmail("Invalid email");
   };
 
   useEffect(() => {
@@ -40,7 +40,9 @@ function Login() {
             <label className="input-label">StudentID</label>
             <label
               htmlFor="studentID"
-              className={`input-border ${borderStudentID}`}
+              className={`input-border ${borderStudentID} ${
+                errorStudentID ? "border-red-500" : ""
+              }`}
             >
               <input
                 id="studentID"
@@ -51,6 +53,7 @@ function Login() {
                 ref={studentIDRef}
                 onFocus={() => {
                   setBorderStudentID("border-black-800");
+                  if (errorStudentID) setErrorStudentID("");
                 }}
                 onBlur={() => {
                   setBorderStudentID("");
@@ -59,11 +62,16 @@ function Login() {
                 autoComplete="off"
               />
             </label>
-            <p>{errorStudentID}</p>
+            <p className="text-error">{errorStudentID}</p>
           </div>
           <div className="input-layout mt-[1rem]">
             <label className="input-label">Email</label>
-            <label htmlFor="email" className={`input-border ${borderEmail}`}>
+            <label
+              htmlFor="email"
+              className={`input-border ${borderEmail} ${
+                errorEmail ? "border-red-500" : ""
+              }`}
+            >
               <input
                 id="email"
                 name="email"
@@ -73,6 +81,7 @@ function Login() {
                 ref={emailRef}
                 onFocus={() => {
                   setBorderEmail("border-black-800");
+                  if (errorEmail) setErrorEmail("");
                 }}
                 onBlur={() => {
                   setBorderEmail("");
@@ -81,7 +90,7 @@ function Login() {
                 autoComplete="off"
               />
             </label>
-            <p>{errorEmail}</p>
+            <p className="text-error">{errorEmail}</p>
           </div>
           <button
             className=" mt-6 bg-purple-600 text-white btn-submit text-[17px]"

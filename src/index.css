@@ -18,7 +18,7 @@
     @apply flex justify-center items-center h-screen;
   }
   .input-layout {
-    @apply flex flex-col;
+    @apply flex flex-col h-[4.6rem];
   }
   .input-field {
     @apply w-[22rem] outline-none text-[17px];
@@ -33,5 +33,8 @@
   .btn-submit {
     @apply w-full rounded-[6px] py-[0.6rem] opacity-90 
     hover:opacity-100 transition-opacity;
+  }
+  .text-error {
+    @apply text-[14px] ml-[0.6rem] text-red-500;
   }
 }
